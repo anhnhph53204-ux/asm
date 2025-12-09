@@ -1,0 +1,133 @@
+<div class="admin-page">
+  <header class="admin-header">
+    <div>
+      <p class="eyebrow">Bảng điều khiển</p>
+      <h1>Quản lý sản phẩm & danh mục</h1>
+    </div>
+    <span class="status-chip" *ngIf="loadingCategories || loadingProducts">Đang đồng bộ...</span>
+  </header>
+
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <div class="admin-grid">
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <p class="eyebrow">Danh mục</p>
+          <h2>Quản lý danh mục</h2>
+        </div>
+        <span class="status-chip" *ngIf="editCategoryId">Đang chỉnh sửa</span>
+      </div>
+
+      <form class="form" [formGroup]="categoryFrm" (ngSubmit)="submitCategory()">
+        <label>
+          <span>Tên danh mục</span>
+          <input type="text" placeholder="Ví dụ: T-shirt" formControlName="name" />
+          <small class="text-error" *ngIf="categoryFrm.controls.name.invalid && categoryFrm.controls.name.touched">
+            Tên tối thiểu 3 ký tự.
+          </small>
+        </label>
+        <div class="form-actions">
+          <button type="submit">{{ editCategoryId ? 'Lưu thay đổi' : 'Thêm danh mục' }}</button>
+          <button type="button" class="ghost" *ngIf="editCategoryId" (click)="cancelCategoryEdit()">Hủy</button>
+        </div>
+      </form>
+
+      <ul class="list" *ngIf="categories.length; else emptyCategory">
+        <li *ngFor="let c of categories; trackBy: trackById">
+          <span>{{ c.name }}</span>
+          <div class="row-actions">
+            <button type="button" class="link" (click)="editCategory(c)">Sửa</button>
+            <button type="button" class="danger" (click)="deleteCategory(c.id)">Xóa</button>
+          </div>
+        </li>
+      </ul>
+      <ng-template #emptyCategory>
+        <p class="empty">Chưa có danh mục nào.</p>
+      </ng-template>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <p class="eyebrow">Sản phẩm</p>
+          <h2>Quản lý sản phẩm</h2>
+        </div>
+        <span class="status-chip" *ngIf="editProductId">Đang chỉnh sửa</span>
+      </div>
+
+      <form class="form grid" [formGroup]="productFrm" (ngSubmit)="submitProduct()">
+        <label>
+          <span>Tên sản phẩm</span>
+          <input type="text" placeholder="Tên sản phẩm" formControlName="name" />
+          <small class="text-error" *ngIf="productFrm.controls.name.invalid && productFrm.controls.name.touched">
+            Tối thiểu 6 ký tự.
+          </small>
+        </label>
+
+        <label>
+          <span>Ảnh (URL)</span>
+          <input type="text" placeholder="https://..." formControlName="image" />
+          <small class="text-error" *ngIf="productFrm.controls.image.invalid && productFrm.controls.image.touched">
+            Vui lòng nhập đường dẫn ảnh hợp lệ.
+          </small>
+        </label>
+
+        <label>
+          <span>Giá</span>
+          <input type="number" min="0" placeholder="0" formControlName="price" />
+          <small class="text-error" *ngIf="productFrm.controls.price.invalid && productFrm.controls.price.touched">
+            Giá phải lớn hơn 0.
+          </small>
+        </label>
+
+        <label>
+          <span>Danh mục</span>
+          <select formControlName="categoryId">
+            <option [ngValue]="null">-- Chọn danh mục --</option>
+            <option *ngFor="let c of categories; trackBy: trackById" [ngValue]="c.id">
+              {{ c.name }}
+            </option>
+          </select>
+          <small class="text-error" *ngIf="productFrm.controls.categoryId.invalid && productFrm.controls.categoryId.touched">
+            Hãy chọn danh mục.
+          </small>
+        </label>
+
+        <div class="form-actions wide">
+          <button type="submit">{{ editProductId ? 'Lưu sản phẩm' : 'Thêm sản phẩm' }}</button>
+          <button type="button" class="ghost" *ngIf="editProductId" (click)="cancelProductEdit()">Hủy</button>
+        </div>
+      </form>
+
+      <div class="table-wrapper" *ngIf="products.length; else emptyProduct">
+        <table>
+          <thead>
+            <tr>
+              <th>Ảnh</th>
+              <th>Tên</th>
+              <th>Giá</th>
+              <th>Danh mục</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of products; trackBy: trackById">
+              <td><img [src]="p.image" alt="{{ p.name }}" /></td>
+              <td>{{ p.name }}</td>
+              <td>{{ p.price | currency:'USD':'symbol':'1.0-0' }}</td>
+              <td>{{ getCategoryName(p.categoryId) }}</td>
+              <td>
+                <button type="button" class="link" (click)="editProduct(p)">Sửa</button>
+                <button type="button" class="danger" (click)="deleteProduct(p.id)">Xóa</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #emptyProduct>
+        <p class="empty">Chưa có sản phẩm nào.</p>
+      </ng-template>
+    </section>
+  </div>
+</div>

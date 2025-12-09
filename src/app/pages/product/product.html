@@ -1,0 +1,7 @@
+<div class="product-grid">
+    <div class="card" *ngFor="let p of products" [routerLink]="['/product', p.id]">
+        <img src="{{p.image}}" alt="{{p.name}}">
+        <h3>{{p.name}}</h3>
+        <p>${{p.price}} VND</p>
+    </div>
+</div>

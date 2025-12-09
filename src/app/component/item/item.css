@@ -1,0 +1,67 @@
+.card:hover { transform: translateY(-5px); }
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 8px;
+}
+
+.stars {
+  color: #FFC633;
+  font-size: 18px;
+  letter-spacing: 5.5px;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.current {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.old {
+  font-size: 24px;
+  font-weight: 700;
+  color: #00000040;
+  text-decoration: line-through;
+}
+
+.badge {
+  background: #FF33331A;
+  color: #FF3333;
+  padding: 6px 14px;
+  border-radius: 62px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.image {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 12px;
+  /* background: #f0f0f0;  // ❌ bỏ để ảnh hiện rõ */
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;              /* 🟢 FIX QUAN TRỌNG */
+  transition: transform 0.3s ease;
+}
+
+.card:hover .product-img {
+  transform: scale(1.05);
+}

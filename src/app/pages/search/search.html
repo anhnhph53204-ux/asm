@@ -1,0 +1,7 @@
+<h2>Search Results: "{{keyword}}"</h2>
+<div *ngIf="products.length; else noResult" class="product-list">
+    <app-item *ngFor="let product of products" [product]="product"></app-item>
+</div>
+<ng-template #noResult>
+    <p>No products found matching your search.</p>
+</ng-template>

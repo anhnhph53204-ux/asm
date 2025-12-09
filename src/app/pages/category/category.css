@@ -1,0 +1,251 @@
+.category-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px 100px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.breadcrumb {
+  padding: 24px 0;
+  font-size: 16px;
+  color: #00000099;
+}
+
+.breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* SIDEBAR */
+.filters-sidebar {
+  background: #FAFAFA;
+  padding: 32px 24px;
+  border-radius: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.filter-section {
+  margin-bottom: 32px;
+}
+
+.filter-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.filter-item a {
+  display: block;
+  padding: 12px 0;
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.filter-item a:hover {
+  color: #000000CC;
+}
+
+/* Price Slider */
+.price-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #E0E0E0;
+  outline: none;
+
+}
+
+.price-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+}
+
+.price-values {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #00000099;
+}
+
+/* Colors */
+.color-options {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.color-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.color-option.selected {
+  border-color: #000;
+  transform: scale(1.1);
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Sizes */
+.size-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.size-option {
+  padding: 12px;
+  border: 1px solid #0000001A;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.size-option.selected,
+.size-option:hover {
+  background: #000;
+  color: white;
+}
+
+/* Apply Button */
+.btn-apply-filter {
+  width: 100%;
+  padding: 16px;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 62px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* MAIN PRODUCTS */
+.products-section {
+  padding-top: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.category-title {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.products-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 16px;
+  color: #00000099;
+}
+
+.sort-dropdown {
+  padding: 12px 16px;
+  border: 1px solid #0000001A;
+  border-radius: 12px;
+  background: white;
+  font-size: 16px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.pagination-btn {
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 62px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.page-number {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #0000001A;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.page-number.active {
+  background: #000;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .category-container {
+    grid-template-columns: 1fr;
+  }
+  .filters-sidebar {
+    position: static;
+  }
+}

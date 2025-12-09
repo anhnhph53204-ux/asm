@@ -1,0 +1,110 @@
+<section class="hero">
+    <div class="container">
+        <div class="content">
+            <h1>FIND CLOTHES<br>THAT MATCHES<br>YOUR STYLE</h1>
+            <p>Browse through our diverse range of meticulously crafted garments, designed to bring out your
+                individuality
+                and cater to your sense of style.</p>
+            <button class="btn-shop">Shop Now</button>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">International Brands</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2,000+</div>
+                    <div class="stat-label">High-Quality Products</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">30,000+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+            </div>
+        </div>
+        <div class="image">
+            <div class="star-big" style="top: 120px; right: 50px;">*</div>
+            <div class="star-small" style="top: 300px; right: 50px;">*</div>
+        </div>
+    </div>
+</section>
+
+<section class="brands">
+    <div class="brands-container">
+        <div class="brand-logo">VERSACE</div>
+        <div class="brand-logo">ZARA</div>
+        <div class="brand-logo">GUCCI</div>
+        <div class="brand-logo">PRADA</div>
+        <div class="brand-logo">Calvin Klein</div>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">NEW ARRIVALS</h2>
+    <div class="product-grid">
+        <app-item *ngFor="let p of products" [product]="p"></app-item>
+    </div>
+    <button class="btn-view-all">ALL VIEW</button>
+    <hr class="divider">
+    <h2 class="section-title">TOP SELLING</h2>
+    <div class="product-grid">
+        <app-item *ngFor="let p of products" [product]="p"></app-item>
+    </div>
+    <button class="btn-view-all">ALL VIEW</button>
+</section>
+
+<div class="section">
+    <div class="browse-section">
+        <div class="browse-container">
+            <h2 class="section-title">BROWSE BY DRESS STYLE</h2>
+            <div class="style-grid">
+                <div class="style-card"
+                    style="background-image: url('https://i.imgur.com/2v8yQ1J.jpeg'); background-size: cover; background-position: center;">
+                    <h3>Casual</h3>
+                </div>
+                <div class="style-card"
+                    style="background-image: url('https://i.imgur.com/3oF8QvL.jpeg'); background-size: cover;">
+                    <h3>Formal</h3>
+                </div>
+                <div class="style-card"
+                    style="background-image: url('https://i.imgur.com/9sQ4Z0P.jpeg'); background-size: cover;">
+                    <h3>Party</h3>
+                </div>
+                <div class="style-card"
+                    style="background-image: url('https://i.imgur.com/8Z4ZhO8.jpeg'); background-size: cover;">
+                    <h3>Gym</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="review-grid">
+    <div class="review-card">
+        <div class="review-star">*****</div>
+        <div class="reviewer">
+            <span class="reviewer-name">ACBD</span>
+            <span class="verified">V</span>
+        </div>
+        <p class="review-text">"I'm blown away by the quality and style of the clothes I received from Shop.co. From
+            casual wear to elegant dresses, every piece I've bought has exceeded my expectations."</p>
+    </div>
+    <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="reviewer">
+            <span class="reviewer-name">Alex K.</span>
+            <span class="verified">✓</span>
+        </div>
+        <p class="review-text">"Finding clothes that align with my personal style used to be a challenge until I
+            discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and
+            occasions."</p>
+    </div>
+    <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="reviewer">
+            <span class="reviewer-name">James L.</span>
+            <span class="verified">✓</span>
+        </div>
+        <p class="review-text">"As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have
+            stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest
+            trends."</p>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<div class="breadcrumb">
+    <a routerLink="/">Home</a> > <span>{{ categoryName }}</span>
+</div>
+
+<div class="category-container">
+    <aside class="filters-sidebar">
+        <div class="filters-header">
+            <h2>Filters</h2>
+            <div class="filter-icons">☰ ⋮</div>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-item" *ngFor="let cat of categories">
+                <a href="#">{{ cat }} -></a>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3 class="filter-title">Price</h3>
+            <div class="price-range">
+                <input type="range" min="0" max="500" [(ngModel)]="priceRange.max" class="price-slider">
+                <div class="price-values">
+                    <span>${{ priceRange.min }}</span>
+                    <span>${{ priceRange.max }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3 class="filter-title">Colors</h3>
+            <div class="color-options">
+                <div *ngFor="let color of availableColors; let i = index" class="color-option"
+                    [class.selected]="selectedColors.includes(i)" [style.background]="color.value"
+                    (click)="toggleColor(i)">
+                    <span *ngIf="selectedColors.includes(i)" class="checkmark">✓</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3 class="filter-title">Size</h3>
+            <div class="size-grid">
+                <button *ngFor="let size of sizes" class="size-option" [class.selected]="selectedSize === size"
+                    (click)="selectedSize = size">
+                    {{ size }}
+                </button>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3 class="filter-title">Dress Style</h3>
+            <div class="filter-item" *ngFor="let style of dressStyles">
+                <a href="#">{{ style }} →</a>
+            </div>
+        </div>
+
+        <button class="btn-apply-filter" (click)="applyFilters()">Apply Filter</button>
+    </aside>
+
+    <main class="products-section">
+        <div class="section-header">
+            <h1 class="category-title">{{ categoryName }}</h1>
+            <div class="products-info">
+                <span class="product-count">Showing {{ startIndex }}-{{ endIndex }} of {{ totalProducts }}
+                    Products</span>
+                <select class="sort-dropdown" [(ngModel)]="sortBy" (change)="applySort()">
+                    <option value="popular">Sort by: Most Popular</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="product-grid">
+            <app-item *ngFor="let product of displayedProducts" [product]="product"></app-item>
+        </div>
+
+        <div class="pagination">
+            <button class="pagination-btn">
+                [disabled]="currentPage === 1"
+                (click)="goToPage(currentPage - 1)">
+                ← Previous
+            </button>
+
+            <div class="pagination-numbers">
+                <ng-container *ngFor="let page of visiblePages">
+                    <span *ngIf="page === -1" class="page-number"
+                        style="cursor: default; border: none; background: transparent;">...</span>
+                    <button *ngIf="page !== -1" class="page-number" [class.active]="page === currentPage"
+                        (click)="goToPage(page)">
+                        {{ page }}
+                    </button>
+                </ng-container>
+            </div>
+            <button class="pagination-btn" [disabled]="currentPage === totalPages" (click)="goToPage(currentPage + 1)">
+                Next →
+            </button>
+        </div>
+    </main>
+</div>

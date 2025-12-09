@@ -1,0 +1,29 @@
+<div class="promo-banner" *ngIf="showBanner">
+    Sign up and get 20% off to your first order. <a href="#">Sign Up Now</a>
+    <button class="close-btn" (click)="closeBanner()">X</button>
+</div>
+<header class="header">
+    <div class="header-container">
+        <div class="logo" routerLink="/">SHOP.CO</div>
+        <nav class="nav">
+            <a routerLink="/product" routerLinkActive="active">Product</a>
+            <a routerLink="/category" [queryParams]="{sale: true}">Category</a>
+            <a routerLink="/category" [queryParams]="{new: true}">New Arrivals</a>
+            <a href="#">Brands</a>
+            <a routerLink="/admin">Admin</a>
+        </nav>
+        <div class="search-container">
+            <input
+    type="text"
+    class="search-bar"
+    placeholder="Search for products..."
+    [(ngModel)]="keyword"
+    (keyup.enter)="onSearch()" />
+  <button (click)="onSearch()"></button>
+        </div>
+        <div class="header-icons">
+            <span routerLink="/cart" style="cursor: pointer;">🛒</span>
+            <span style="cursor: pointer;">👤</span>
+        </div>
+    </div>
+</header>

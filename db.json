@@ -1,0 +1,59 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "T-shirt 123"
+    },
+    {
+      "id": 2,
+      "name": "Jeans"
+    },
+    {
+      "id": 3,
+      "name": "áo phông"
+    },
+    {
+      "id": 4,
+      "name": "adsdfa123"
+    }
+  ],
+  "products": [
+    {
+      "id": 2,
+      "name": "Áo thun đen",
+      "price": 180,
+      "rating": 4,
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=400",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Quần jeans xanh",
+      "price": 220,
+      "rating": 5,
+      "image": "https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=400",
+      "categoryId": 2
+    },
+    {
+      "id": 4,
+      "name": "Áo hoodie nam",
+      "image": "https://images.unsplash.com/photo-1618354691373-f12d5f8abf71?q=80&w=400",
+      "price": 350000,
+      "categoryId": 2
+    },
+    {
+      "id": 5,
+      "name": "Áo khoác bomber",
+      "image": "https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?q=80&w=400",
+      "price": 299000,
+      "categoryId": 2
+    },
+    {
+      "id": 6,
+      "name": "Áo phao",
+      "image": "https://images.unsplash.com/photo-1601333144134-1f88be3a06e6?q=80&w=400",
+      "price": 3000,
+      "categoryId": 1
+    }
+  ]
+}

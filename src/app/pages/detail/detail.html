@@ -1,0 +1,23 @@
+<div *ngIf="product" class="detail-container">
+  <div class="image-box">
+    <img [src]="product.image" alt="">
+  </div>
+
+  <div class="info-box">
+    <h2>{{product.name}}</h2>
+    <p>Price: {{product.price}} VND</p>
+    <p>Rating: {{ product.rating }}★</p>
+
+    <button (click)="addToCart()" class="add-btn">
+      Add to Cart
+    </button>
+
+    <button routerLink="/cart" class="back-btn">
+      Xem giỏ hàng
+    </button>
+
+    <button routerLink="/" class="back-btn">
+      ← Back
+    </button>
+  </div>
+</div>

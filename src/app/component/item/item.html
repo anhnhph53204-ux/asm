@@ -1,0 +1,17 @@
+<div class="card" [routerLink]="['/product', product.id]">
+    <div class="image">
+  <img [src]="product.image || 'https://via.placeholder.com/300x400/f5f5f5/999?text=No+Image'" 
+       [alt]="product.name"
+       class="product-img" />
+</div>
+    <h3>{{product.name}}</h3>
+    <div class="rating">
+        <span class="star">{{getStar()}}</span>
+        <span>{{product.rating}}/5</span>
+    </div>
+    <div class="price">
+        <span class="current">${{product.price}}</span>
+        <span *ngIf="product.originalPrice" class="old">${{product.originalPrice}}</span>
+        <span *ngIf="product.discount" class="badge">{{ product.discount }}%</span>
+    </div>
+</div>
